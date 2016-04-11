@@ -15,8 +15,8 @@
 % and MOST importantly DO NOT use the same file name 
 % as the file name is for this file EXCLUSIVELY.
 %----------------------------------------------------------
-\def\fileversion{1.02}
-\def\filedate{2012/11/30}
+\def\fileversion{1.41}
+\def\filedate{2013/08/07} %{2012/11/30}
 \typeout{}
 \typeout{Document Class: ncuthesisCJK.cls 
         \filedate \space v\fileversion \space (Jesse LO)}
@@ -25,7 +25,7 @@
 
 %-------------------------- identification ----------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ncuthesisCJK}[2012/11/30 v1.02 NCU thesis]
+\ProvidesClass{ncuthesisCJK}[2013/08/08 v1.41 NCU thesis]
 %-------------------------- initial code ------------------
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 %--------------------------- executation ----------------
@@ -34,6 +34,7 @@
 \LoadClass[a4paper,openright]{report}  % 單雙面印刷 
 \if@twoside\else\raggedbottom\fi 
 \RequirePackage{graphicx}          % graphics, if any
+\RequirePackage[T1]{fontenc}
 \RequirePackage{CJKutf8,CJKnumb,CJKvert,fancyvrb,verbatim}
 \RequirePackage{pdfpages,pdflscape,ifthen,showframe,printlen,calculator}
 \RequirePackage[bookmarks=true,unicode=true,colorlinks=true,
@@ -46,13 +47,13 @@ pdftitle={An example in TeX/LaTeX/XeLaTeX}]{hyperref}       % 超聯結
 \RequirePackage{titletoc}
 
 \titleformat{\chapter}[block]
-{\centering\Huge\bfseries\color{blue}}
+{\centering\Huge\bfseries}
 {{\CJKnumber{\thechapter}、}}{1pc}{}
 %----------------------------
-\titleformat{\section}[block]{\flushleft\LARGE\color{purple}}
+\titleformat{\section}[block]{\flushleft\LARGE}
 {\LARGE\enspace\sf\thesection\enspace}{1pc}{}
 %----------------------------
-\titleformat{\subsection}[block]{\flushleft\LARGE\color{red}}
+\titleformat{\subsection}[block]{\flushleft\LARGE}
 {\filright\enspace\LARGE\sf\thesubsection\enspace}{1pc}{}
 %============================   % for Chinese toc 
 \titlecontents{chapter}[0em]{}  
@@ -68,8 +69,8 @@ pdftitle={An example in TeX/LaTeX/XeLaTeX}]{hyperref}       % 超聯結
 \renewcommand{\figurename}{\protect \centering \bf 圖}
 \renewcommand{\tablename}{\protect \centering \bf 表}
 %\renewcommand*\l@chapter{\@dottedtocline{0}{1em}{5em}}
-\renewcommand*\l@section{\@dottedtocline{1}{1em}{4.5em}}
-\renewcommand*\l@subsection{\@dottedtocline{2}{2em}{3.0em}}
+\renewcommand*\l@section{\@dottedtocline{1}{1em}{5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2em}{4em}}
 %\renewcommand*\l@subsubsection{\@dottedtocline{3}{4.3em}{3em}}
 
 % DECLARATIONS  宣告
@@ -88,9 +89,9 @@ pdftitle={An example in TeX/LaTeX/XeLaTeX}]{hyperref}       % 超聯結
 月\space\CJKnumber{\number\day}日}
 \DeclareOption{draft}{
 \renewcommand\@oddhead{
-\today \hfil 未完稿 v1.02 \hfil \copyright\ \@author}
+\today \hfil 未完稿 v1.41 \hfil \copyright\ \@author}
 }
-\DeclareOption{noframe}{}
+\DeclareOption{noframe,twoside}{}
 \ProcessOptions\relax
 \hypersetup{final}
 %  paper size
@@ -122,7 +123,7 @@ The paper width is  &\printlength{\paperwidth}
        \else\if@openright\cleardoublepage\else\clearpage\fi
        \fi
        \begin{CJK}{UTF8}{bkai}}%
-       {\end{CJK}
+       {\clearpage\end{CJK}
        \if@restonecol\twocolumn
        \else\newpage\thispagestyle{empty}\fi}
 
@@ -148,7 +149,7 @@ The paper width is  &\printlength{\paperwidth}
 \vspace*{2ex}
 {{\Large {指導教授$\colon$ \@mprof}} \par}
 \vspace*{2ex}
-{{\Large {\@sprof}} \par}   % 共同指導
+{{\Large {\@sprof}} \par}   % 共同指導 (different from Xe)
 \vspace*{5ex}
 {\Huge {\@degreedate} \par}
 \vspace*{2ex}
@@ -156,15 +157,16 @@ The paper width is  &\printlength{\paperwidth}
 {{{版權所有\copyright\ \@author\ \@copyyear} \par}}
 {\hspace{5cm}}
 \end{center}
-  \null\vfill
+\renewcommand\bg@material{}
+\null\vfill
 \end{alwayssingle}}
 %--------end of title page for thesis
 
 % 先定義一單欄式的新環境(onecol) 需輸入一標題變數。
 
 \newenvironment{onecol}[1]
-{\cleardoublepage
-\phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage\phantomsection
+\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}
@@ -176,8 +178,8 @@ The paper width is  &\printlength{\paperwidth}
 \end{alwayssingle}}
 %----------- No thesis title on the top
 \newenvironment{onecolnotitle}[1]
-{\cleardoublepage
- \phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage\phantomsection
+\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}
@@ -205,11 +207,17 @@ The paper width is  &\printlength{\paperwidth}
 {\end{onecol}}
 
 \newenvironment{appendA} 
-{\begin{onecolnotitle}{附錄一}} 
+{\begin{onecolnotitle}{附錄一}
+\setcounter{section}{0}
+\renewcommand\thesection{A.\arabic{section}}
+\renewcommand\theequation{A.\arabic{equation}}}
 {\end{onecolnotitle}}
 
 \newenvironment{appendB} 
-{\begin{onecolnotitle}{附錄二}} 
+{\begin{onecolnotitle}{附錄二}
+\setcounter{section}{0}
+\renewcommand\thesection{B.\arabic{section}}
+\renewcommand\theequation{B.\arabic{equation}}}
 {\end{onecolnotitle}}
 
 \newenvironment{symbols}
@@ -234,6 +242,7 @@ The paper width is  &\printlength{\paperwidth}
 {\@title}\hspace{0.5cm}
 {\@author}撰\hspace{1cm}}}
 \end{landscape}
+\clearpage
 \end{CJK}}
 %------------- Indentation
 \leftskip 0cm
@@ -242,4 +251,4 @@ The paper width is  &\printlength{\paperwidth}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
 \makeatother
-%-------------end of ncuthesis 
+%-------------end of ncuthesis  totaling 254 lines

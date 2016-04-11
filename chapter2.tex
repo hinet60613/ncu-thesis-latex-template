@@ -2,7 +2,7 @@
 首先，每章結構如下所示。
 
 \begin{Verbatim}[frame=single,firstline=1,label=Every chapter]
-\chapter{章名}   　　　　　　　　% 宣告某章開始
+\chapter{章名}   　　　　　　　　 % 宣告某章開始
 ...
 \section{節名一}　　　　　　　　 % 宣告某節開始
 ...
@@ -15,17 +15,17 @@
 \end{Verbatim}
 \index{Reserved words}
 \begin{itemize}
-\item 所有\LaTeX指令都由反斜線開頭，例如\textbackslash command (不可有{\tt arabic}數字)。
-\item \LaTeX\ 保留字有十個： \textbackslash\  \$\ \{\ \}\ $\tilde{}$\ \#\ \%\ \&\ \textasciicircum\
+\item 所有\LaTeX指令都由反斜線開頭，例如\textbackslash command (不可有{\tt arabic}數字)。故\textbackslash cmd1不是指令，但\textbackslash cmdi是指令。 
+\item \LaTeX保留字有十個： \textbackslash\  \$\ \{\ \}\ $\tilde{}$\ \#\ \%\ \&\ \textasciicircum\
  \_\ $>$, $<$ 不可單獨使用。  
 \item \% 代表註解，其後任何字或空白皆忽略。
-\item \LaTeX\ 一般檔案的副檔名為{\tt filename.tex}，文獻檔則為\newline {\tt filename.bib}。其他都是編譯時產生輔助檔，可刪除。
+\item \LaTeX一般檔案的副檔名為{\tt filename.tex}，文獻檔則為\newline {\tt filename.bib}。其他都是編譯時產生輔助檔，可刪除。
 \item 一個空白與連續數行的空白\LaTeX{}都是為一個空白，故主檔寫作時可適當留白，方便作者自行閱讀。
 \item 環境名\textbackslash begin \ldots \textbackslash end，任何括號 $\{_1$ $[_2$ $(_{3}$ \ldots $)_3$ $]_2$ $\}_1$ 皆要對稱，不可錯置。
 \end{itemize}
 用{\textbackslash chapter\{章名\}}指令後，告訴\LaTeX{}以下文字要自成一章，就像打字一般，直接輸入中英文。
 這樣就可以完成大部分的論文主體了。好用吧!!! 論文裡還有什麼
-要寫？數學式啦！這是\LaTeX\ 的強項，我們稍後再說。先繼續介紹章節用法，這裡有假設、求解、驗證、數理基礎 四個小節({\tt section})。數理基礎又分次小節({\tt subsection})內含論文撰寫常用的技巧。
+要寫？數學式啦！這是\LaTeX的強項，我們稍後再說。先繼續介紹章節用法，這裡有假設、求解、驗證、數理基礎 四個小節({\tt section})。數理基礎又分次小節({\tt subsection})內含論文撰寫常用的技巧。
 
 \section{假設}
 若需要分章節則用{\textbackslash section\{節名\}}，再繼續打字。
@@ -33,12 +33,12 @@
 同樣概念{\textbackslash section\{節名\}}，繼續下去。若要換新的一章則開新檔{\tt chapter3.tex}，內部第一行又如前所述
 
 \section{驗證}
-寫完後存檔。再以pdf\LaTeX\ 或 Xe\LaTeX\ 編譯。則可看到輸出。當然這一切都需在\TeX/\LaTeX環境之下。這方面知識網路很多。可自行上網學習。入門技巧約需1小時，主要是數學式寫法，現在我們將學一些初步技巧。
+寫完後存檔。再以pdf\LaTeX或 \XeLaTeX編譯。則可看到輸出。當然這一切都需在\TeX/\LaTeX環境之下。這方面知識網路很多。可自行上網學習。入門技巧約需1小時，主要是數學式寫法，現在我們將學一些初步技巧。
 \section{數理基礎}
 \index{\LaTeX!\textbackslash chapter}
 \index{\LaTeX!\textbackslash section}
-\index{\LaTeX!\textbackslash subsection} \index{\LaTeX\ 環境!Verbatim}%
-數學式寫法很簡單，一行文字中含數學式是這樣寫\verb|$A^1_{234}$|，會產生文字中的數學式$A^1_{234}$，此例說明數學上下標的寫法，也說明有四個保留字不能亂用，因為保留給數學式\$\ 的上下標及群組概念了。數學式只能出現在文字內({\tt inline math mode})像這樣$1+\frac{1}{1+\frac{2}{1+\frac{3}{4}}}$，也不夠美觀。要單獨成一數學環境則用\\
+\index{\LaTeX!\textbackslash subsection} \index{\LaTeX環境!Verbatim}%
+數學式寫法很簡單，一行文字中含數學式是這樣寫\verb|$A^1_{234}$|，會產生文字中的數學式$A^1_{234}$，此例說明數學上下標的寫法，也說明有四個保留字不能亂用，因為保留給數學式(\$)的上下標( \^\ , \_ )及群組概念(\{ \})了。數學式如果只能出現在文字內({\tt inline math mode})像這樣文字與數學式混合在一起$1+\frac{1}{1+\frac{2}{1+\frac{3}{4}}}$及$\displaystyle \int_0^t f(\tau) d\,\tau$也不夠美觀。的確，單獨成一數學環境則賞心悅目，版面品質也提升了，因為它會單獨成一漂亮的數學式如下  \index{\LaTeX環境!\textbackslash [}\index{\LaTeX環境!\textbackslash ]}
 \begin{Verbatim}[frame=single,firstline=1,label=Form 1 w/o number]
 $$ 或 \[
 1+\frac{1}{1+\frac{2}{1+\frac{3}{4}}}, \\
@@ -46,7 +46,7 @@ $$ 或 \[
 \quad \frac{a_1^{3x}+a_2^{-3x}}{a_1^x+a_2^{-x}}
 $$ 或 \]
 \end{Verbatim}
-會單獨成一漂亮的數學式如下  \index{\LaTeX\ 環境!\textbackslash [}\index{\LaTeX\ 環境!\textbackslash ]}
+
 $$ 
 1+\frac{1}{1+\frac{2}{1+\frac{3}{4}}}, \\
 \frac{-b\pm\sqrt{b^2-4ac}}{2a},\\
@@ -58,56 +58,56 @@ $$
 \item 適當留白亦有美觀效果，注意數學式間間距不同？如何達成\footnote{\textbackslash qquad，\textbackslash quad，\textbackslash ，\textbackslash,，\textbackslash;皆可，只是間距有別。}? 
 \item 另外，但這樣寫是無編號的寫法，因為有時候我們需引用(\verb|\ref|)某方程式時則必須用編號的方式。
 \end{itemize}
-\index{\LaTeX\ 環境!\$\$}
+\index{\LaTeX環境!\$\$}
 \subsection{方程式}
-最簡單的是用{\tt equation}環境，產生下列常微分方程式\\
+最簡單的是用{\tt equation}環境，產生下列常微分方程式
 \begin{Verbatim}[frame=single,firstline=1,label=Form 2 with number]  
 \begin{equation}
-\mbox{常微分方程式} \quad a \ddot y+ b\dot y +c=f
+\mbox{常微分方程式} \quad a \ddot y+ b\dot y +cy=f
 \label{eqn1}
 \end{equation}
 \end{Verbatim}
-會產生 \index{\LaTeX\ 環境!minipage}
+會產生 \index{\LaTeX環境!minipage}
 \begin{equation}
-\mbox{常微分方程式} \quad a \ddot y+ b\dot y +c=f \index{\LaTeX!\textbackslash mbox}
+\mbox{常微分方程式} \quad a \ddot y+ b\dot y +cy=f \index{\LaTeX!\textbackslash mbox}
 \label{eqn1}
 \end{equation}
-文字環境有數學式用{\color{red}\$\mbox{math mode}\$}的方式表現。但數學環境中有文字時，用{\color{red}\verb+\mbox{text mode}+}表現。如上所示\footnote{其實\LaTeX\ 就是文字，數學，物件三大觀念，亦可混合一起使用。}。
-而\verb|\label{eqn1}|是為了可稍後用{\verb|\ref{eqn1}|}參照。希望編號及間距的問題解決了，但希望對齊呢？要對齊則用{\tt eqnarray}環境及 \&\& (又一保留字)\\
+文字環境有數學式用{\color{red}\$\mbox{math mode}\$}的方式表現。但數學環境中有文字時，用{\color{red}\verb+\mbox{text mode}+}表現。如上所示\footnote{其實\LaTeX就是文字，數學，物件三大觀念，亦可混合一起使用。}。
+而\verb|\label{eqn1}|是為了可稍後用{\verb|\ref{eqn1}|}參照。希望編號及間距的問題解決了，但希望對齊呢？要對齊則用{\tt eqnarray}環境及 \&\& (又一保留字)
 \begin{Verbatim}[frame=single,firstline=1,label=Form 3 with alighment and number]
 \begin{eqnarray}
-f &=& a \ddot y+ b\dot y +c \nonumber \\
+f &=& a \ddot y+ b\dot y +cy \nonumber \\
 g &=& a\frac{\partial x}{\partial t_1}
 + b\frac{\partial x}{\partial t_2} +c
 \end{eqnarray}
 \end{Verbatim}
 如上所示，其結果如下\footnote{強制換行在此環境有效。}。                \index{\LaTeX!\textbackslash ref}
 \begin{eqnarray}
-f&=& a \ddot y+ b\dot y +c \nonumber \\  \index{\LaTeX!\textbackslash nonumber}
+f&=& a \ddot y+ b\dot y +cy \nonumber \\  \index{\LaTeX!\textbackslash nonumber}
 g&=& a \frac{\partial x}{\partial t_1}
 + b \frac{\partial x}{\partial t_2}+c        % 最後一行不需 \\
 \end{eqnarray}
 結果是自動編號的對齊方式，有了數學式編號，但全篇都有用編號也不好，若不須編號則用\verb+\nonumber+加於該數式尾部\footnote{如果只要對齊，都不要編號則用\textbackslash begin\{eqnarray*\}/\textbackslash end\{eqnarray*\}。}
-\index{\LaTeX\ 環境!eqnarray}
+\index{\LaTeX環境!eqnarray}
 
 \subsection{矩陣}
-矩陣則用{\tt equation}及{\tt array}環境，可印出如下所示。\index{\LaTeX\ 環境!equation}\\ 
+矩陣則用{\tt equation}及{\tt array}環境，可印出如下所示。\index{\LaTeX環境!equation}
 \begin{Verbatim}[frame=single,firstline=1,label=Every matrix]
 \begin{equation}
 \left [              % 左 [
 \begin{array}{ccc}   % c=置中，l=置左，r=置右。
 a & b & 1\\
 c & d & 2\\
-4 & 5 & 6\
+4 & 5 & 6
 \end{array}
 \right ]             % 右 ]
 \label{mat1}
 \end{equation}
 \end{Verbatim}
-會產生\footnote{不要編號的矩陣，怎麼寫？ \qquad {\tt Ans:} \textbackslash [ \textbackslash ] or \$\$ \$\$。} \index{\LaTeX\ 環境!minipage}
+會產生\footnote{不要編號的矩陣，怎麼寫？ \qquad {\tt Ans:} \textbackslash [ \textbackslash ] or \$\$ \$\$。} \index{\LaTeX環境!minipage}
 \begin{equation}
 \left [
-\begin{array}{ccc}  \index{\LaTeX\ 環境!array}
+\begin{array}{ccc}  \index{\LaTeX環境!array}
 a & b & 1\\
 c & d & 2\\
 4 & 5 & 6
@@ -142,7 +142,7 @@ y=\frac{1}{x} \quad  \index{\LaTeX!\textbackslash quad}
 \right .            
 \end{equation}
 \subsection{其他}
-還有其他的數學式，例如\\
+還有其他的數學式，例如
 \begin{Verbatim}[frame=single,firstline=1,label=Various math forms]
 \[
 \sum_{i=1}^n A_i, \int_0^t f(\tau)\,d\tau, \sqrt{x}, \tan, 
@@ -157,14 +157,14 @@ y=\frac{1}{x} \quad  \index{\LaTeX!\textbackslash quad}
 \forall x \in \Re, \exists, \angle \theta, \bar A, \vec A
 \]
 以上是寫數學的技巧，因頁面限制無法全寫出來，為此，檔案夾內準備了一個網路上搜索來的檔案
-\href{./Symbols.pdf}{ Symbols.pdf }內含所有數學式的寫法，方便各位寫數學式時參考。
-
+\href{./Symbols.pdf}{ Symbols.pdf }內含所有數學式的寫法，方便各位寫數學式時參考。美國數學協會亦發展了自己的套件
+{\tt amssymb, amsmath}，數學家或數學系學生喜歡用，可說是標準化的套件了，亦有使用手冊可上網查詢。
 \section{物件}
 這裡是指數學定理，表格，小頁，列舉，插圖等獨立單元。
 \index{\LaTeX!\textbackslash newtheorem}\index{\LaTeX!\textbackslash newcommand}
 
 \subsection{定理}
-主檔在宣告區有定義{\tt newtheorem}(用來定義使用者定理環境)中文化定理及證明。故可連續使用且連續依章節自動編號。這是\LaTeX\ 的核心觀念 ---文學編程。例如這樣以{\tt newcommand}(用來定義使用者指令)定義中央大學
+主檔在宣告區有定義{\tt newtheorem}(用來定義使用者定理環境)中文化定理及證明。故可連續使用且連續依章節自動編號。這是\LaTeX的核心觀念 ---文學編程。例如這樣以{\tt newcommand}(用來定義使用者指令)定義中央大學
 
 \begin{Verbatim}[frame=single,firstline=1,label=Simple macro without parameters]
 \newcommand{\ncu}{{\color{red} \bf \Huge 中央大學}}
@@ -193,7 +193,7 @@ y=\frac{1}{x} \quad  \index{\LaTeX!\textbackslash quad}
 作業內容在此。
 \end{pr}
 \end{Verbatim}
-產生\footnote{如何定義解答環境? Ans: \textbackslash newtheorem\{ans\}\{解答\}[chapter]}
+產生\footnote{如何定義解答環境? Ans: \textbackslash newtheorem\{ans\}\{解答\}[chapter]。本手冊定義了定理，作業，證明，演算法於mypreamble.tex內。}
 \begin{pr}
 作業內容在此。
 \end{pr}
@@ -201,8 +201,8 @@ y=\frac{1}{x} \quad  \index{\LaTeX!\textbackslash quad}
 有些學科，例如電腦資訊科學，需將演算法{\tt(Algorithm)}寫出，這時也可用定義新理論的方式來達成。舉例如下
 \index{演算法}。
 \begin{Verbatim}[frame=single,firstline=1,label={An algorithm}]
-\newtheorem{algorithm}{演算法}[chapter]
-\begin{algorithm}[An Algorithm]
+\newtheorem{algor}{演算法}[chapter]
+\begin{algo}[An Algorithm]
 \hfill\par           % 保持 algorithm 與 tabbing 距離
 \begin{tabbing}
 1. \hspace{1cm} \=For $k=1$ to $k^{\max}$\\  % iterations
@@ -218,10 +218,10 @@ x_i^{(k)} =
 3. \> \textrm{If} $\|\vec{x}^{(k)}-\vec{x}^{(k-1)}\| < 
 \epsilon$, \textrm{stop.}
 \end{tabbing}
-\end{algorithm}
+\end{algo}
 \end{Verbatim}
-其中\verb+\=+是第一、二行的定位點，分別設為向右1及0.5公分。\verb+\>+則為第二、三行以後，各行的對齊點點。其結果為 \index{定位點}\index{對齊點}
-\begin{algorithm}[An Algorithm]
+其中\verb+\=+是第一、二行的定位點，分別設為向右1及0.5公分。\verb+\>+則為第二、三行以後，各行的對齊點。其結果為 \index{定位點}\index{對齊點}
+\begin{algo}[An Algorithm]
 \hfill\par   % 防止 algorithm 與 tabbing 環境間結合
 \begin{tabbing}
 1. \hspace{1cm} \=For $k=1$ to $k^{\max}$ \\   
@@ -234,14 +234,15 @@ x_i^{(k)} =
 $\\
 3. \>\textrm{If} $\|\vec{x}^{(k)}-\vec{x}^{(k-1)}\| < \epsilon$, \textrm{stop.}
 \end{tabbing}
-\end{algorithm}
+\end{algo}
+另外，{\tt listings, lslisting, fancyvrb, algorithm}由\LaTeX愛用者提供的巨集套件\index{巨集套件}亦是為此而設計的。
 %其中第一段英文字變成{\it italic}斜體字是因{\tt tabbing}環境造成，此時在宣告區加入\verb+\usepackage{amsthm}+可改為正楷體。或如第三段英文所示，用\verb+\textrm{text}+將文字段落包住。
-\index{\LaTeX\ 環境!tabbing}
-\index{\LaTeX\ 環境!tabbing!\textbackslash =}
-\index{\LaTeX\ 環境!tabbing!\textbackslash $>$}
+\index{\LaTeX環境!tabbing}
+\index{\LaTeX環境!tabbing!\textbackslash =}
+\index{\LaTeX環境!tabbing!\textbackslash $>$}
 \subsection{表格}
 表格變化較多。最基礎的表格則用 {\tt tabular} 及 {\tt table} 環境。請注意！
-{\tt tabular}與{\tt array}有點相似，前者是文字環境(可有數學\$\$)，後者是數學環境(可有文字\textbackslash mbox)。\\
+{\tt tabular}與{\tt array}有點相似，前者是文字環境(可有數學\$\$)，後者是數學環境(可有文字\textbackslash mbox)。
 \begin{Verbatim}[frame=single,firstline=1,label=Tabular 1]
 \begin{center}
 \begin{tabular}{ccc}
@@ -252,7 +253,8 @@ $\\
 \end{tabular}
 \end{center}
 \end{Verbatim}
-會產生\footnote{除center(置中)環境外，還有flushright(置右)，flushleft(置左)。}
+會產生\footnote{除center(置中)環境外，還有flushright(置右)，flushleft(置左)。}  \footnote{tabular 不是浮動環境，不可用{ \textbackslash caption}指令，table才可。哇，太繁瑣了。
+浮動物件有何好處？可自動收入LOF或LOT，需靠caption解釋。故只有table及figure，不多啦!}
 \index{\LaTeX!\textbackslash hline}
 \begin{center}
 \begin{tabular}{ccc}
@@ -261,17 +263,17 @@ $\\
 2 & 2345.3 & 3.48736
 \end{tabular}
 \end{center}  
-\index{\LaTeX\ 環境!center}%
-或這樣寫有邊框且會自動放置於頁面之上中下，因為最外層是{\tt table}環境。它與{\tt figure}環境都是浮動環境(\tt floating environments)，顧名思義就是讓\LaTeX\ 決定位置{\tt hbt}。\\ 
+\index{\LaTeX環境!center}%
+或這樣寫有邊框且會自動放置於頁面之上中下，因為最外層是{\tt table}環境。它與{\tt figure}環境都是浮動環境(\tt floating environments)，顧名思義就是讓\LaTeX決定位置{\tt hbt}。
 \begin{Verbatim}[frame=single,firstline=1,label=Tabular 2]
 \begin{table}[!hbt]
 \centering
+\caption{實驗結果} 
 \begin{tabular}{|c|c|c|} \hline 
  A & B & C \\ \hline \hline
  D & E & F \\
  1 & 2 & 3 \\ \hline
 \end{tabular}
-\caption{實驗結果} 
 \label{bookstruc1}
 \end{table}
 \end{Verbatim}
@@ -279,21 +281,22 @@ $\\
 \index{\LaTeX!\textbackslash hline}
 \begin{table}[!hbt]
 \centering  
+\caption{實驗結果} 
 \begin{tabular}{|c|c|c|} \hline        
 A & B & C \\ \hline \hline
 D & E & F \\
 1 & 2 & 3 \\ \hline 
 \end{tabular}
-\caption{實驗結果}
 \end{table} 
-\index{\LaTeX\ 環境!flushleft}
-\label{bookstruc1} \index{\LaTeX\ 環境!tabular}
-\index{\LaTeX\ 環境!flushright}
+\index{\LaTeX環境!flushleft}
+\label{bookstruc1} \index{\LaTeX環境!tabular}
+\index{\LaTeX環境!flushright}
 其中表格可能會出現在{\tt top}(上方)，{\tt bottom}(下方)，{\tt here}(在此)，驚嘆號$!$ 表示則由\LaTeX排版決定{\tt hbt}擇一。這裡顯示的是最簡單的表格，較複雜的表格分隔亦多，主要是活用指令\verb|\multicolumn{欄數}{對齊}{名稱}|。這指令使用後相當於佔據相等的\{欄數\}。做表格時請一列一列思考，需水平線則用\verb|\hline或\cline|，需垂直線則用垂直線\verb+|+。
 
 \begin{Verbatim}[frame=single,firstline=1,label=A bit complicated tabular]
 \begin{table}[!hbt]
 \centering
+\caption{更複雜的表格}
 \begin{tabular}{cc||cccc}                \hline
 \multicolumn{2}{c}{matrix} &        %兩欄 置中 名稱 定位
 \multicolumn{4}{c}{$\bar k=k-e_i-e_j$}\\%四欄 置中 數學式
@@ -308,6 +311,7 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 可做出表格如下。
 \begin{table}[!hbt]
 \centering
+\caption{更複雜的表格}
 \begin{tabular}{cc||cccc}                \hline
 \multicolumn{2}{c}{matrix} & 
 \multicolumn{4}{c}{$\bar k=k-e_i-e_j$}\\ 
@@ -319,13 +323,13 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 22   & 02          & -  & -  & 10 & 01  
 \end{tabular}
 \end{table}
-\index{\LaTeX\ 環境!tabular!\textbackslash multicolumn}
+\index{\LaTeX環境!tabular!\textbackslash multicolumn}
 更複雜的表格是可行的，只是需上網自學，然而上述初步的理解足以讓你上網再深入學習，不難了，都是舉一反三的應用了。
 
 
 
 \subsection{小頁}
-小頁又稱為{\tt minipage}，有時候整頁模式須用兩欄式表現對照，這時可這樣做\\
+小頁又稱為{\tt minipage}，有時候整頁模式須用兩欄式表現對照，這時可這樣做
 \begin{Verbatim}[frame=single, firstline=1,label=Minipage]
 \begin{minipage}[b]{0.49\textwidth}
 {\bf A {\rm two-\emph {column} setup} demon.}
@@ -347,7 +351,7 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 兩欄式\footnote{真正的兩欄式亦可在第一行{\tt documentclass}中加入{\tt [twocolumn]}。但此論文不適合。}的內容某一欄可以是圖、表、或方程式，另一欄可以是解釋或對照的圖表。完全看設計者的想法。
 
 \subsection{列舉} 
-寫論文時亦需要條列式的列舉，將重點列出。最常見的用法有兩種，都是以\verb+\item+為主。第一種用法{\tt enumerate}會自動編號。適合有先後次序的概念，例如實驗步驟。\index{\LaTeX\ 環境!enumerate}\\
+寫論文時亦需要條列式的列舉，將重點列出。最常見的用法有兩種，都是以\verb+\item+為主。第一種用法{\tt enumerate}會自動編號。適合有先後次序的概念，例如實驗步驟。\index{\LaTeX環境!enumerate}
 \begin{Verbatim}[frame=single,firstline=1,label=Enumerate]
 \begin{enumerate}
 \item 這是重點一
@@ -363,7 +367,7 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 \end{enumerate}
 
 第二種用法{\tt itemize}不會自動編號，適合無先後次序的重點陳述，但保留彈性使用(包括自行編號)。
-\index{\LaTeX\ 環境!itemize}\\
+\index{\LaTeX環境!itemize}
 \begin{Verbatim}[frame=single,firstline=1,label=Itemize]
 \begin{itemize}
 \item[甲] 使用文字做為標記
@@ -377,7 +381,7 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 \item[!] 使用符號做為標記
 \item    沒用也可以，但預設是圓點。
 \end{itemize}
-甚至兩種環境混合使用\\
+甚至兩種環境混合使用
 \begin{Verbatim}[frame=single,firstline=1,label=Enumerate+Itemize]
 \begin{itemize}
 \item[甲] 使用文字做為標記
@@ -409,12 +413,12 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 \end{itemize}
 
 \subsection{插圖}
-實驗室的結果時常以圖形表示，而往往這些圖未必以\LaTeX\ 做成，要如何將此類圖檔加入論文內？ 是有方法的。 這樣寫將可將事先做好的圖檔({\tt png,jpg,jpeg,pdf})加入\LaTeX論文內。 
+實驗的結果時常需以圖形表示，而往往這些圖未必以\LaTeX做成，要如何將此類圖檔加入論文內？ 是有方法的。 這樣寫將可將事先做好的圖檔({\tt png,jpg,jpeg,pdf})加入\LaTeX論文內。 
 \index{\LaTeX!\textbackslash includegraphics!png}\index{\LaTeX!\textbackslash includegraphics!jpg}\index{\LaTeX!\textbackslash includegraphics!pdf}
 \index{\LaTeX!\textbackslash includegraphics!jpeg}
 
-\LaTeX\ 皆受不同圖檔格式{\tt png,jpg,jpeg,pdf,mps}可加入文稿內。若檔名相同則\LaTeX\ 會依下列優先次序讀取
-{\tt png>pdf>jpg>mps>jpeg}。\\
+\LaTeX皆受不同圖檔格式{\tt png,jpg,jpeg,pdf,mps}可加入文稿內。若檔名相同則\LaTeX會依下列優先次序讀取
+{\tt png>pdf>jpg>mps>jpeg}。
 \begin{Verbatim}[frame=single,firstline=1,label=Every figure]
 \begin{figure}[!hbt]
 \centering
@@ -431,49 +435,52 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 \caption{中大校徽放大三倍}
 \label{Fig1}
 \end{figure}%
-顯然地，圖可能不只一張，若每張都要這樣輸入，就不方便了。\LaTeX{}有想到這點，我們可定義新指令({\tt \textbackslash newcommand})如下\\
+顯然地，圖可能不只一張，若每張都要這樣輸入，就不方便了。\LaTeX{}有想到這點，我們可定義新指令({\tt \textbackslash newcommand})如下\\ \index{\LaTeX!\textbackslash newcommand}
 \begin{Verbatim}[frame=single,firstline=1,label={Macro with parameters}]
-\newcommand{\insertfig}[2]{
+\def\scalefactor{1} % defined in mypreamble.tex
+\newcommand{\insertfig}[3]{
+\renewcommand\scalefactor{#3}
 \begin{figure}[!hbt]
 \centering
-\includegraphics[scale=2]{#1}
+\includegraphics[scale=\scalefactor]{#1}
 \caption{#2}
 \label{Fig:#1}
 \end{figure}
 }
 \end{Verbatim}
-其中[2]代表有兩輸入變數。\#1=圖檔名，\#2=該圖的標題，且自動以檔名做該圖的標記，可適當時引述({\tt \textbackslash ref(Fig:\#1)})\footnote{\textbackslash cite是文獻的引述；\textbackslash ref 是圖，表，數學式的引述。不要混淆了。}。這定義({\tt macro})可寫在任何地方，但多數是寫在宣告區({\tt preamble})\textbackslash document前，如果很多這樣的定義，則放在{\tt mypreamble.tex}內，再放入宣告區，以保持整潔。使用時只要在適當位置寫
+其中[3]代表有三輸入變數。\#1=圖檔名，\#2=該圖的標題，\#3=該圖放大倍率，且自動以檔名做該圖的標記，可適當時引述({\tt \textbackslash ref(Fig:\#1)})\footnote{\textbackslash cite是文獻的引述；\textbackslash ref 是圖，表，數學式的引述。不要混淆了。}。這定義({\tt macro})可寫在任何地方，但多數是寫在宣告區({\tt preamble})\textbackslash document前，如果很多這樣的定義，則放在{\tt mypreamble.tex}內，再放入宣告區，以保持整潔。使用時只要在適當位置寫
 \index{\LaTeX!\textbackslash newcommand}
 \begin{Verbatim}[frame=single,firstline=1,label={Macro usage}]
-\insertfig{NCUlogo}{中央大學校徽放大二倍}
+\insertfig{NCUlogo}{中央大學校徽放大二倍}{2}
 \end{Verbatim}
 則會產生(指令少很多了)。
-\insertfig{NCUlogo}{中央大學校徽放大二倍} 
+\insertfig{NCUlogo}{中央大學校徽放大二倍} {2}
 這些圖表\ref{Fig:NCUlogo}所在位置的相關頁碼都會自動加入圖目錄({\tt LoF})及表目錄({\tt LoT})中。同理，章節的頁碼亦自動加入目錄中。作者不必擔心。
 \index{\LaTeX!LoF}\index{\LaTeX!LoT}\index{\LaTeX!ToC}
+\index{ncuthesis 指令!\textbackslash scalefactor}
 
 
-在此介紹其他好用的\LaTeX\ 指令用於排版：\index{\LaTeX!\textbackslash newline}
+在此介紹其他好用的\LaTeX指令用於排版：\index{\LaTeX!\textbackslash newline}
 \begin{itemize}
 \item \textbackslash cleardoublepage：從奇數頁開始。 \index{\LaTeX!\textbackslash cleardoublepage}
 \item \textbackslash clearpage：從下一頁開始。       \index{\LaTeX!\textbackslash clearpage}
 \item \textbackslash linebreak，\textbackslash newline，\textbackslash\textbackslash：強置換行。  
 \index{\LaTeX!\textbackslash linebreak}
 \item \textbackslash noindent：第一行不內縮。        \index{\LaTeX!\textbackslash noident}
-\item \textbackslash index\{level one!level two!level three\}：索引指令\footnote{想想看，寫出含3個變數的{\tt index macro}。}。
+\item \textbackslash index\{level one!level two!level three\}：索引指令\footnote{想想看，寫出含3個變數的{\tt index macro}。 Ans: \textbackslash newcommand\{\textbackslash myindex\}[3]\{\textbackslash index\{\#1!\#2!\#3\}\}。 基本概念就是將一個或多個已知指令重新定義及命名。}。
 \item \{\textbackslash bf text\}：黑體強調{\bf text}，其他 \textbackslash it， \textbackslash tt 等雷同。
 \end{itemize}
-以上\LaTeX\ 介紹並非全部，只是常見的基礎，都頗直覺式/口語式的寫法(專業術語有一個漂亮的名子--文學編程{\tt literate programming})，可知並不難學\footnote{LyX有提供結構性的寫法，更簡化入門門檻，請用關鍵字收尋。}。開始上網學習了，用 {\tt Google} 搜尋 {\tt latex basics}或{\tt latex beginner} 關鍵字，一小時後你就比現在深入多了。可以用\LaTeX{}寫報告或論文了。
+以上\LaTeX介紹並非全部，只是常見的基礎，都頗直覺式/口語式的寫法(專業術語有一個漂亮的名子 -- 文學編程，{\tt literate programming})，可知並不難學\footnote{LyX有提供結構性的寫法，更簡化入門門檻，請用關鍵字收尋。}。開始上網學習了，用 {\tt Google} 搜尋 {\tt latex basics}或{\tt latex beginner} 關鍵字，一小時後你就比現在深入多了。可以用\LaTeX{}寫報告或論文了。
 
 \begin{table}[hbt!]
 \caption{學習方向}
 \begin{enumerate}
-\index{\LaTeX\ 環境!enumerate}
+\index{\LaTeX環境!enumerate}
 \item{\color{blue} 初步：目標是抓到概念。}\\
 \url{http://www.cs.nthu.edu.tw/~cherung/teaching/2009cs5321/link/latex.pdf}\\
 \url{http://www.iu.hio.no/~frodes/rm/ppt}
-\item{\color{cyan} 入門：目標是了解、熟習語法的規律性。\\ 
-\url{http://spe.num.edu.mn/altankhuu/lesson/comp101/nemelt1/latex_for_beginner.pdf}}
+\item{\color{cyan} 入門：目標是了解、熟習語法的規律性}。
+\url{http://spe.num.edu.mn/altankhuu/lesson/comp101/nemelt1/latex_for_beginner.pdf}
 \item{\color{yellow}
 中級：要下載些不錯的文件，以供隨時查閱。}\\ 
 \url{http://people.debian.org.tw/~koster/latex/lshort-zh-tw.pdf}\\
@@ -491,136 +498,8 @@ $ij$ & $(e_i+e_j)$ & 30 & 21 & 12 & 03\\ \hline \hline
 \end{table}%
 請問此表\ref{res}是用哪些環境指令畫出的？\footnote{\tt table，caption及enumerate。}
 完全不懂\LaTeX{}者，至少走完入門階段，再考慮是否用此論文套件寫你的論文。已經懂\LaTeX{}的研究生應會選擇此套件。
-\index{\LaTeX\ 環境!tabular}
-\index{\LaTeX\ 環境!table}
-\index{\LaTeX\ 環境!figure}
+\index{\LaTeX環境!tabular}
+\index{\LaTeX環境!table}
+\index{\LaTeX環境!figure}
 
 \vfil  \index{\LaTeX!\textbackslash vfil}
-
-\chapter{文獻製作}\index{\LaTeX!\textbackslash chapter}
-依此類推，同理可用，本章將說明論文的檔案夾"{\tt NCU}論文"內含那些的文件，及簡單說明如何製作參考文獻。並說明現存問題及將來發展。檔案下載後請改為"某某某論文"。
-\section{如此這般}
-這樣繼續打字，製表，作圖，就可完成論文撰寫。
-\subsection{檔案}
-此論文範例放於"{\tt NCU}論文"資料夾，內含下列檔案。
-\fvset{frame=single,firstline=1,lastline=24}
-\VerbatimInput{readme.txt}  \index{\LaTeX!\textbackslash VerbatimInput}
-{\color{red} \Huge \tt Don't delete *.tex, *.cls, *.bib.} 
-\section{引用致謝}
-研究成果總有參考文獻，畢竟我們都是站在巨人的肩膀上再向前創新發展。引述別人的成果可表示我們對他人的感謝。\LaTeX\ 提供兩種方式達到此效果。(甲)
-若參考文獻不多者(少於十篇)，可照此檔案夾內{\tt bibli.tex} 用\verb+\bibitem+的寫法打入相關資訊， %但要注意不要刪除錯誤的符號。(乙) 若文獻多時，則建議先建檔，譬如檔名為{\tt myfoo.bib}， %其主要結構如下，更多其他結構可參考網路資訊。
-% \index{Bibliography!\char64 article}
-% \index{Bibliography!\char64 inproceedings}
-% \index{Bibliography!\char64 book}
-% \index{Bibliography!\char64 unpublished}
-
-\begin{Verbatim}[frame=single,firstline=1,lastline=32,rulecolor=\color{red},label=Typing up myfoo.tex]
-@article{paper,
-title      = "Title",
-author     = "Author A and Author B",
-journal    = "Name of journal",
-volume     = "6",
-number     = "2"
-pages      = "xxxx--xxxx",
-month      = feb,          % 不用引號
-year       = "2012"
-}
-@inproceedings{conference,
-author     = "First author and Second author",
-title      = "Title of the conference paper",
-booktitle  = "Proceedings of the $X^{th}$ Conference on XYZ",
-year       = "2006",
-pages      = "xxx--xxx",
-volume     = "3",
-month      = oct           % 不用引號
-}
-@book{ethinking,
-author     = "Jesse LO",
-title      = "eThinking in Circuits with PSpice",
-year       = "2012",
-month      = sep,
-note       = "ISBN 978-957-41-8721-8"
-}
-@unpublished{ncuthesis,
-author     = "Jesse LO",
-title      = "碩博士論文(Xe)\LaTeX使用手冊",
-month      = "11/30",          
-year       = "2011"
-}
-\end{Verbatim}
-%如果你因這檔案而學到\LaTeX{}且獲益良多，讓你在極短的時間內，即時、快速完成漂亮的論文，你可以考慮給它一個"讚"，將這檔%案引述於您的論文參考文獻中。讓更多的中央大學碩士、博士生了解\LaTeX\ %、或產生興趣，進而用於論文撰寫或出版書籍。\ldots \ldots 文獻建立完成後、存檔成{\tt %myfoo.bib}，別忘了副檔名是{\color{red}\tt .bib}，不是{\color{red}\tt .tex}。然後於主檔{\tt %masterthesis.tex}內最後幾行中刪除\verb+include{bibli}+，再加入兩行\\
-\begin{Verbatim}[frame=single,rulecolor=\color{red},label=Add this]
-\bibliographystyle{style}
-\bibliography{myfoo}
-\end{Verbatim}
-其中{\tt style}有四種選擇\\ 
-{\tt plain} -- 照英文字母排序\\
-{\tt alpha} -- 照{\tt plain}但[1,2,3,4]用英文名({\tt given name})及年份排序\\
-{\tt abbrv} -- 照{\tt plain}但以英文姓({\tt last name})及年分排序\\
-{\tt unsrt} -- 照論文中引述先後順序排序
-這樣就加入主檔了，引述時，在論文適當處這樣寫\verb+\cite{paper,conference,ncuthesis,ethinking}+
-會產生文獻列印於後。一切引述應出現的地方，編號的安排，\LaTeX都會負責。
-因為這四個風格都是最陽春的，建議採用從網路下載{\tt IEEEtran.sty}或個人喜歡的風格，參考文獻會漂亮許多。
-
-
-\section{安裝引擎}
-\subsection{Window}
-一小時過去了，執行{\tt masterthesisXe.tex}試試看，還是不行。為什麼?因為還未安裝啦。搜尋{\tt MiKTeX}可得網頁\url{http://miktex.org/2.9/setup}在左邊有一{\tt MiKTeX Portable}的英文字，按一下，開始照說明安裝。初次執行時{\tt MiKTeX}會自動要求下載巨集更新，請按{\tt Yes}，不一會兒，你就有一份隨身{\tt USB}的\LaTeX{}隨身攜帶，隨時可玩。{\tt MiKTeX}檔案夾已內含編輯器 {\tt TeXworks}。需執行{\tt miktex-portable.cmd}
-
-\subsection{Android}
-目前平板電腦，智慧型手機採用{\tt Android}系統者，皆可至{\tt Play}商店下載免費\LaTeX\ 引擎{\tt \TeX portal}。亦是隨身攜帶的\LaTeX\ 不需網路連接(只有安裝時需網路)。
-
-
-\section{現在未來}
-此體裁檔雖通過機械系六本70--80頁左右的碩士論文編譯及{\tt Window}環境測試，相信仍有改進空間。 回報錯誤或有更簡潔的\LaTeX\ /Xe\LaTeX{}寫法，請通知{\tt jclo\char64 cc.ncu.edu.tw}，將盡速了解、更正及誌謝，但非所有提問或要求皆處理，謝謝。
-
-\subsection{已知問題}
-\begin{enumerate}
-\item   \textbackslash marginpar (這指令能在左右空白處加註解)，在Xe\LaTeX\ 編譯後若有寫，應出現偶數頁左註解或奇數頁右邊註解，有時卻不出現。
-\item 因外來巨集({\tt macro})是由各愛好者所寫，更新時可會造成相衝，而有編譯問題，建議直接按{\tt enter}鍵 繼續編譯，或找到該問題行並將該行註解(\%)。
-\index{\LaTeX!\textbackslash raggedleft}
-\index{\LaTeX!\textbackslash raggedright}
-\item {\tt calculator}巨集應該會自動下載，若沒有則需手動安裝。目前資料夾內有該檔案。
-\end{enumerate}
-
-\subsection{未來方向}\index{\LaTeX!\textbackslash subsection}\index{\LaTeX!\textbackslash chapter}
-\begin{itemize}
-\item 浮水印。
-\item 在不同系統上測試。
-\item {\tt LyX (要將lyx轉成tex檔)}  \index{\TeX!}
-\end{itemize}
-\vfill
-\section{歷史更新}
-\begin{tabular}{l@{:}l}
-Ver 1.04 & 2013/06/30\\
-& 加入{\tt Android} \LaTeX\ 資訊。\\
-&修正目錄連結不正確，少了\verb|\cleardoublepage|。\\ 
-&新增共同指導教授欄位。\\
-&三本論文Window測試成功。\\
-Ver 1.03 & 2013/01/24\\
-&200+次下載。\\
-&加入演算法環境。\\
-&{\tt MiKTeX}更新後，{\tt RequiredPackage\{xltxtra\}}\\
-&及論文子標題(\tt subtitle)內\verb|\XeLaTeX|\\
-&會造成編譯錯誤。故除去後即可編譯。\\
-Ver 1.02 & 2012/11/30\\
-&{\tt ToC}對齊。\\
-&加入{\tt ncuthesisXe.cls}檔。 \\
-&加入文獻製作。\\
-&\textbackslash {\tt today} 中文化。\\
-&加入Xe\LaTeX{}編譯。\\
-&可顯示文字外框，未完稿功能。\\
-&更多數學例題。\\
-&加入學習\LaTeX{}資訊。\\
-&{\tt TeXLive2009/Ubuntu 12.04}。\\
-&插頁頁碼。\\
-&每段內縮。\\
-&目錄超連結。\\
-&教務處測試成功。\\
-&新增\textbackslash bookbone，\textbackslash printpapersize 指令。\\
-Ver 1.01 & 2012/05/30 \\ 
-&根據教務處範例製作({\tt form-03-02-2.doc})。\\
-&\url{http://pdc.adm.ncu.edu.tw/Register/}\\
-&三本論文測試成功。
-\end{tabular}\\
-這{\tt ncuthesis}使用說明書是以\fmtname, 版本~\fmtversion 製作。

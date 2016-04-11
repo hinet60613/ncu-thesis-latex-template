@@ -1,0 +1,190 @@
+
+\chapter{文獻製作}\index{\LaTeX!\textbackslash chapter}
+依此類推，同理可用，本章將說明"\,{\tt NCU}論文"內含那些的文件，及簡單說明如何製作參考文獻。
+這樣繼續打字，製表，作圖，就可完成論文撰寫。
+\section{檔案}
+此論文範例放於"\,{\tt NCU}論文"資料夾，內含下列主檔案。
+\fvset{frame=single,firstline=1,lastline=30,label=NCU論文}
+\VerbatimInput{readme.txt}  \index{\LaTeX!\textbackslash VerbatimInput}
+{\color{red} \Huge \tt Don't delete *.tex, *.cls, *.bib.} 
+\section{引用致謝}
+研究成果總有參考文獻，畢竟我們都是站在巨人的肩膀上再向前創新發展。引述別人的成果可表示我們對他人的感謝。\LaTeX提供兩種方式達到此效果。(甲)
+若參考文獻不多者(少於十篇)，可照此檔案夾內{\tt bibli.tex} 用\verb+\bibitem+的寫法打入相關資訊， 但要注意不要刪除錯誤的符號。(乙) 若文獻多時，則建議先建檔，譬如檔名為{\tt myfoo.bib}， 其主要結構如下，更多其他結構可參考網路資訊。
+\index{Bibliography!\char64 article}
+\index{Bibliography!\char64 inproceedings}
+\index{Bibliography!\char64 book}
+\index{Bibliography!\char64 unpublished}
+
+\begin{Verbatim}[frame=single,firstline=1,lastline=32,rulecolor=\color{red},label=Typing up myfoo.bib]
+@article{paper,
+title      = "Title",
+author     = "Author A and Author B",
+journal    = "Name of journal",
+volume     = "6",
+number     = "2"
+pages      = "xxx--xxx",
+month      = feb,          % 不用引號
+year       = "2012"
+}
+@inproceedings{conference,
+author     = "First author and Second author",
+title      = "Title of the conference paper",
+booktitle  = "Proceedings of the ABC Conference on XYZ",
+year       = "2006",
+pages      = "xxx--xxx",
+volume     = "3",
+month      = oct           % 不用引號
+}
+@book{ethinking,
+author     = "Jesse LO",
+title      = "eThinking in Circuits with PSpice",
+year       = "2012",
+month      = sep,
+note       = "ISBN 978-957-41-8721-8"
+}
+@unpublished{ncuthesis,
+author     = "Jesse LO",
+title      = "碩博士論文\LaTeX/\XeLaTeX使用手冊",
+month      = "11/30",          
+year       = "2011"
+}
+\end{Verbatim}
+如果你因這檔案而學到\LaTeX{}且獲益良多，讓你在極短的時間內，即時、快速完成漂亮的論文，你可以考慮給它一個讚，將這{\tt ncuthesis}條目加入您的論文參考文獻中。讓更多的中央大學碩士、博士生了解\LaTeX、或產生興趣，進而用於論文撰寫或出版書籍\ldots \ldots。文獻建立完成後、存檔成{\tt myfoo.bib}，別忘了副檔名是{\color{red}\tt .bib}，不是{\color{red}\tt .tex}。然後於主檔{\tt masterthesis.tex}內最後幾行中刪除\verb+include{bibli}+，再加入四行
+\begin{Verbatim}[frame=single,rulecolor=\color{red},label=Add this]
+\cleardoublepage\phantomsection            % 強制奇數頁起
+\addcontentsline{toc}{chapter}{參考文獻}   % 產生目錄頁碼
+\bibliographystyle{style}
+\bibliography{myfoo}
+\end{Verbatim}
+其中{\tt style}有四種選擇\\ 
+{\tt plain} -- 照英文字母排序\\
+{\tt alpha} -- 照{\tt plain}但[1,2,3,4]用英文名({\tt given name})及年份排序\\
+{\tt abbrv} -- 照{\tt plain}但以英文姓({\tt last name})及年分排序\\
+{\tt unsrt} -- 照論文中引述先後順序排序
+這樣就加入主檔了，引述時，在論文適當處這樣寫\verb+\cite{paper,conference,ncuthesis,ethinking}+
+會產生文獻列印於後。一切引述應出現的地方，編號的安排，\LaTeX都會負責。
+因為這四個風格都是最陽春的，如果從網路下載{\tt IEEEtran.sty}或個人喜歡的其它風格，參考文獻會漂亮許多。
+
+\section{投影片}
+論文繕打完畢，指導教授同意付梓印刷，後面還有口試準備，想用{\tt MS PPT}撰寫，數學符號又是一大難處，沒關係；有{\tt beamer}幫忙。可上網尋找{\tt beamer}例題，一樣是屬\LaTeX巨集，故論文內容可直接拷貝過來。其基本結構就是{\tt frame}環境：此時不需用{\tt ncuthesisXe(CJK)}而是{\tt beamer}套件。
+
+\fvset{frame=single,numbers=left,numbersep=3pt,label=投影片,firstline=1,lastline=50}
+\VerbatimInput{beamertest.tex}
+撰寫完成後，編譯方式不變。輸出是以{\tt PDF}顯示，其結果顯示於附錄二。數學符號不會因電腦沒字型而成亂碼。
+這是最陽春的結構。可上網尋找自己喜歡的外觀。\url{http://deic.uab.es/~iblanes/beamer_gallery/}
+或精簡入門\url{http://www.math.umbc.edu/~rouben/beamer/}
+\index{Packages!beamer}\index{Packages!beamerposter}
+
+
+\chapter{安裝引擎}
+本章將說明各電腦平台在網路上如何取得\LaTeX原始檔。如何執行{\tt TeXworkds}編譯器。
+\section{Window}
+一小時過去了，執行{\tt masterthesisXe.tex}試試看，還是不行。為什麼?因為還未安裝\LaTeX引擎啦。搜尋{\tt MiKTeX}可得網頁\url{http://miktex.org/2.9/setup}在左邊有一{\tt MiKTeX Portable}的英文字，按一下，開始照說明安裝。初次執行時{\tt MiKTeX}會自動要求下載巨集更新，請按{\tt Yes}，不一會兒，你就有一份隨身{\tt USB}的\LaTeX{}隨身攜帶，隨時可玩。{\tt MiKTeX}檔案夾已內含編輯器 {\tt TeXworks}。請依下列步驟啟動
+
+\begin{enumerate}
+\item 呼叫{\tt MiKTeX/bin/miktex-portable.cmd}編輯器出現在左。
+\item {\tt File/Open} ncuthesisXe(CJK).tex開起主檔。
+\item 按左上角綠色鍵執行編譯。
+\item 銀幕左下文字跑動。
+\item 若卡住，待一會 or 按{\tt enter key}；最後PDF出現在右。
+\end{enumerate}
+
+{\tt TeXworks}其實是跨平台的編輯器，因簡單好用故推薦，這網址
+\url{https://code.google.com/p/texworks/downloads/list?can=2&q=}有使用手冊說明書及官方的各平台{\tt TeXworks}最新版。
+若想知道其它常用{\tt \LaTeX\ Editors/IDEs}，並了解各編輯器的優缺點，請看網頁\url{http://tex.stackexchange.com/a/111367/34618}。
+\section{Linux}
+請自\url{http://www.tug.org/texlive/}下載相關軟體。有些{\tt Linux}發行版({\tt distribution})已有內建{\tt TeXworks}，如果沒有，則需自行安裝。請自至
+\url{http://code.google.com/p/texworks/wiki/Building}網址，然後依所示步驟安裝。其實任何編輯器皆可，好學好用即可。
+\section{Mac OS X}
+請自\url{http://www.tug.org/mactex/}下載相關軟體。{\tt MacTeX 2010}以後的發行版({\tt distribution})應已有內建{\tt TeXworks}，所以安裝發行版後可直接從檔案夾內呼較。
+\section{Android}
+目前平板電腦，智慧型手機採用{\tt Android}系統者，皆可至
+\begin{itemize}
+\item {\tt Play}商店下載免費\LaTeX引擎{\tt \TeX portal}。
+\item \url{https://code.google.com/p/texlive-for-android/}
+\end{itemize}
+兩者皆是隨身攜帶的\LaTeX，且正在發展階段，值得期待。亦不需網路連接(只有安裝時需網路)。
+
+\chapter{現在未來}
+此體裁檔雖通過機械系作者研究室六本70--80頁左右的碩士論文編譯，340+次{\tt Google}下載及不同{\tt Window}環境測試，相信仍有改進空間。 回報錯誤或有更簡潔的\LaTeX/\XeLaTeX寫法，請在下載處以{\tt issue}留言或通知{\tt jclo\char64 cc.ncu.edu.tw}，將盡速了解、更正及誌謝，但非所有提問或要求皆處理，謝謝。
+
+\section{已知問題}
+\begin{enumerate}
+\item TeXworks 閱讀器看 myfile.pdf "\,可能是亂碼"，改其它閱讀器則正常。
+\item   \textbackslash marginpar (這指令能在左右空白處加註解)，在\XeLaTeX編譯後若有寫，應出現偶數頁左邊註解或奇數頁右邊註解，有時卻不出現。
+\item 因外來巨集({\tt macro})是由各愛好者所寫，更新時可會造成相衝，而有編譯問題，建議直接按{\tt enter}鍵 繼續編譯，或找到該問題行並將該行註解(\%)。
+\index{\LaTeX!\textbackslash raggedleft}
+\index{\LaTeX!\textbackslash raggedright}
+\item {\tt calculator}巨集應該會自動下載，若沒有則需手動安裝。目前資料夾內有該檔案。
+\end{enumerate}
+
+\section{未來方向}\index{\LaTeX!\textbackslash subsection}\index{\LaTeX!\textbackslash chapter}
+\begin{itemize}
+\item 在不同系統上測試。
+\begin{itemize}
+\item Windows 上完全成功。
+\item {\tt ASUS} 平板 {\tt Transformer TF201, Android 4.1.1,} \\
+\TeX Portal 2.3.5.7, {\tt ncuthesisCJK}測試成功。{\tt ncuthesisXe}則有字型(標楷體，新細明體，{\tt BiauKai})問題，猜測{\tt Android}只喜歡{\tt CJK}中文。(第一次需下載檔案，故時間較長。\\
+{\tt 2013/06/30})
+\end{itemize}
+\item 是否可將ncuthesisXe(CJK).cls用於{\tt LyX}上： 基於下列(1.)的說明及網路搜尋，有四個方向可嘗試:  \index{\TeX!}
+\begin{enumerate}
+\item \url{http://tex.stackexchange.com/a/22274}
+\item \url{http://stefaanlippens.net/customLaTeXclassesinLyX}
+\item \url{http://tex.stackexchange.com/a/109916}
+\item \url{http://tex.stackexchange.com/q/127444}
+\item \url{http://tex.stackexchange.com/a/96733}
+\end{enumerate}
+\item 期望以\LaTeX撰寫論文的碩博士生越來越多。
+\end{itemize}
+\null\vfil
+\section{歷史更新}
+\setlength{\parindent}{0cm}
+\begin{tabular}{l@{:}l}
+Ver 1.1 & 2012/05/30 \\ 
+&根據教務處範例製作({\tt form-03-02-2.doc})。\\
+&\url{http://pdc.adm.ncu.edu.tw/Register/}\\
+&三本論文測試成功。\\
+Ver 1.2 & 2012/11/30\\
+&{\tt ToC}對齊(Xe \& CJK)。\\
+&加入文獻製作。\\
+&加入{\tt ncuthesisXe.cls}檔，可\XeLaTeX{}編譯。\\
+&可顯示文字外框，未完稿功能。\textbackslash {\tt today} 中文化。\\
+&更多數學例題及加入學習\LaTeX{}資訊。\\
+&{\tt TeXLive2009/Ubuntu 12.04}。\\
+&插頁頁碼。\\
+&每段內縮。\\
+&目錄超連結。\\
+&教務處測試成功。\\
+&新增\textbackslash bookbone，\textbackslash printpapersize 指令。\\
+Ver 1.3 & 2013/01/24 (200+次下載) \\
+&加入演算法環境。\\
+&不同電腦，{\tt MiKTeX}更新後，{\tt RequiredPackage\{xltxtra\}}\\
+&及\verb|\XeLaTeX|指令會造成編譯錯誤。故除去後即可編譯。\\
+&{\tt Warning: Failed to convert $\ldots$ to UTF16}，\\
+&這是{\tt hyperref}與\XeLaTeX造成的，目前只好接受。\\
+Ver 1.4 & 2013/06/14 (100+)\\
+&三本論文{\tt Window}測試成功，亦發現可改善處。\\
+&修正目錄在{\tt ToC}頁碼不正確，少了\verb|\cleardoublepage|。\\ 
+&新增共同指導教授欄位並對齊。\\
+&加入{\tt Android} \LaTeX資訊。{\tt ASUS} 平板 {\tt TF201},\\
+& {\tt Android 4.1.1},  \TeX Portal 2.3.5.7 測試成功。\\
+\end{tabular}
+
+\begin{tabular}{l@{:}l}
+Ver 1.41 & 2013/08/31\\
+&浮水印。\\
+&其它文書變化，如何改寫巨集({\tt macro})。\\
+&修正附錄在{\tt ToC}頁碼不正確及增加獨立編號系統\\
+&({\tt numbering systems})。\\
+& 加入自動化自製摘要{\tt onecol}範例。\\
+& 加入手動化自製封面{\tt titlepage}範例。\\
+& 加入手動化自製摘要{\tt titlepage}範例。\\
+& 加入中央大學碩博士論文審議書 (\LaTeX檔)。\\
+& 移除{\tt ncuthesisXe.cls內titlesec, titletoc}。\\
+& 加入{\tt todo}自我提醒事項的用法。\\
+& 跨平台{\tt TeXworks}安裝資訊。\\
+& 投影片{\tt beamer}製作。\\
+Ver 1.414 & 2013/--/--
+\end{tabular}\\
+這{\tt ncuthesis}使用說明書是以\fmtname, 版本~\fmtversion 製作。

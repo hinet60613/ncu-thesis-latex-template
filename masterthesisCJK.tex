@@ -1,6 +1,7 @@
 \documentclass[noframe,twoside]{ncuthesisCJK}   
 \usepackage{makeidx}             % for index
 \usepackage{layout}
+\usepackage[]{todonotes}
 \dept{機械工程研究所}
 \degree{碩/博士}
 \title{模版 {\sf ncuthesisCJK} 使用說明}
@@ -11,7 +12,7 @@
 \sprof{共同指導: 甲教授\\ \hspace{2.3cm} 乙教授}                         % 填入"共同指導: 某某某"
 \degreedate{中~華~民~國~一百零二~年~六~月}
 \copyyear{2012}
-
+\def\XeLaTeX{Xe\LaTeX}  % Only in CJK 
 \input{mypreamble}             % 自訂巨集多 收起來
                                  % 自訂巨集少 直接寫出
 
@@ -41,15 +42,16 @@
                                  % \mainmatter
 \include{chapter1}               % 第一章    (自行寫入)
 \include{chapter2}               % 第二章    (自行寫入)
+\include{chapter3}               % 第二章    (自行寫入)
                                  % \backmatter
-\include{appendix}               % 若有需要 使用appendA/B環境
 \include{bibli}                  % 文獻      (自行寫入)
+\include{appendix}               % 若有需要 使用appendA/B環境
  
 
-
+\clearpage
 \end{CJK}                        
 %---------------------
 \clearpage
 \bookbone                        % 短書脊製作
-\layout
+{\centering\layout}
 \end{document}                   % 本文結束

@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{beamer}
+\usepackage{fontspec}
+\usepackage[CJKnumber]{xeCJK}
+\usepackage{xunicode}           % unicode character macros
+\setmainfont{Times New Roman}
+\setCJKmainfont{標楷體} %kaiu.ttf 
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\usetheme[secheader]{Boadilla}
+%其它需求
+\begin{document}
+\title{主標題}
+\subtitle{副標題}
+\author{作者}
+\institute{單位}
+\date{\today}
+\maketitle
+%----------------------------
+\section{Section}
+\begin{frame}[t]
+\frametitle{重點整理}
+可用\textbackslash{section},
+\textbackslash{subsection}於frame外。
+然後在這一frame內用指令\textbackslash tableofcontents
+，則所有節、小節名皆會收錄於此，產生目錄，如下所示。
+\tableofcontents
+\end{frame}
+%----------------------------
+\subsection{Subsection}
+\begin{frame}[t]
+\frametitle{第一張}
+依此類推，將論文精簡直接剪貼，放入frame內。
+若需以節(section)或小節(subsection)來分割內容則於適當
+處(frame外)加\textbackslash section\{...\}，
+\textbackslash subsection\{...\}。
+更複雜的結構。上網學習了。
+\vspace{1cm}
+
+{\Large 如果這論文手冊用心，
+請告訴其他研究生，讓他們的論文快速、
+排版精美、一生回憶。}
+\end{frame}
+%----------------------------
+\end{document}
