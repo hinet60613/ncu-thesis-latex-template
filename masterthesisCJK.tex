@@ -1,0 +1,68 @@
+\documentclass[noframe]{ncuthesisCJK}   
+\usepackage{makeidx}             % for index
+\usepackage{layout}
+\dept{機械工程研究所}
+\degree{碩/博士}
+\title{模版 {\sf ncuthesisCJK} 使用說明}
+\subtitle{\sf An example in \LaTeX/Xe\LaTeX}
+%\subtitle{}=空白
+\author{羅吉昌}
+\mprof{羅吉昌}
+\sprof{}                         % 填入"共同指導: 某某某"
+\degreedate{中~華~民~國~一百零一~年~六~月}
+\copyyear{2012}
+
+% \input{mypreamble}             % 自訂巨集多 收起來
+                                 % 自訂巨集少 直接寫出
+\newcommand\insertfig[2]{
+\begin{figure}[!hbt]
+\centering
+\includegraphics[scale=2]{#1}
+\caption{#2}
+\label{Fig:#1}
+\end{figure}
+}
+\newtheorem{thm}{定理}[chapter]
+\newtheorem{lem}{引理}[chapter]
+\newtheorem{ex} {例題}[chapter]
+\newtheorem{pr} {作業}[chapter]
+\newtheorem{rem}{註釋}
+\newtheorem{pf} {證明}
+%\includeonly{chapter2}          % 單獨編譯此檔
+\makeindex                       % 告訴\LaTeX要做索引
+\begin{document}                 % 宣告結束   本文開始
+\begin{CJK}{UTF8}{bkai}          %----------------------
+\CJKhorz
+\fontsize{14pt}{20pt}\selectfont % 可調間距以便閱讀%
+\pagenumbering{alph}             % to cheat latex
+\maketitle                       % 論文封面
+\setboolean{printcopyright}{true}
+\maketitle                       % 書名面
+\cleardoublepage
+\addtocontents{toc}{~\hfill\textbf{頁次}\par}
+\includepdf[pages=-,scale=0.9]{myfile.pdf} % 插入其他表格
+                                 % \frontmatter
+\pagenumbering{roman}            % 羅馬數字編頁
+\include{abstractcn}            % 中文摘要 abstractcn環境
+\include{abstracten}             % 英文摘要 abstracten
+\include{acknowledge}            % 謝誌     acknowledge
+\include{lists}
+\include{symbol}                 % 符號說明     symbols 環境
+\cleardoublepage
+
+\pagenumbering{arabic}           % 阿拉伯數字編頁
+                                 % \mainmatter
+\include{chapter1}               % 第一章    (自行寫入)
+\include{chapter2}               % 第二章    (自行寫入)
+                                 % \backmatter
+\include{appendix}               % 若有需要 使用appendA/B環境
+\include{bibli}                  % 文獻      (自行寫入)
+\bibliographystyle{unsrt}        
+\bibliography{myfoo}             % 資料庫 (擇一)
+
+\end{CJK}                        
+%---------------------
+\clearpage
+\bookbone                        % 短書脊製作
+\layout
+\end{document}                   % 本文結束

@@ -1,0 +1,8 @@
+\phantomsection\addcontentsline{toc}{chapter}{目錄}
+\tableofcontents                 % toc
+\phantomsection\addcontentsline{toc}{chapter}{圖目錄}
+\renewcommand{\numberline}[1]{圖~#1\hspace*{1em}}%圖目錄
+\listoffigures                   % lof
+\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}%表目錄
+\phantomsection\addcontentsline{toc}{chapter}{表目錄}
+\listoftables                    % lot
