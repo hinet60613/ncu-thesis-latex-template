@@ -163,7 +163,8 @@ The paper width is  &\printlength{\paperwidth}
 % 先定義一單欄式的新環境(onecol) 需輸入一標題變數。
 
 \newenvironment{onecol}[1]
-{\phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage
+\phantomsection\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}
@@ -175,7 +176,8 @@ The paper width is  &\printlength{\paperwidth}
 \end{alwayssingle}}
 %----------- No thesis title on the top
 \newenvironment{onecolnotitle}[1]
-{\phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage
+ \phantomsection\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}

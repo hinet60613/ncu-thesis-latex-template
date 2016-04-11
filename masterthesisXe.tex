@@ -1,4 +1,4 @@
-\documentclass[twoside,noframe]{ncuthesisXe}
+\documentclass[noframe,twoside]{ncuthesisXe}
 \usepackage{makeidx}             % for index
 \usepackage{layout}              % to show page dimensions
 % 以下為中大碩博士論文封面 它校需自行更改ncuthesis.cls檔
@@ -6,31 +6,18 @@
 \dept      {機械工程研究所}
 \degree    {碩/博士}
 \title     {模版 {\sf ncuthesisXe} 使用說明}
-\subtitle  {\sf An example in \LaTeX/\XeLaTeX}
+\subtitle  {\sf An example in \LaTeX /Xe\LaTeX}
 
 \author    {羅吉昌}
 \mprof     {羅吉昌}
 \sprof     {共同指導：甲教授\\ \hspace{2.3cm} 乙教授} 
-\degreedate{中~華~民~國~一百零一~年~六~月}
-\copyyear  {2012}
+\degreedate{中~華~民~國~一百零二~年~六~月}
+\copyyear  {2012-2013}
 
-% \input{mypreamble}             % 自訂巨集多 收起來
+\input{mypreamble}               % 自訂巨集多 收起來，
                                  % 自訂巨集少 直接寫出
-\newcommand\insertfig[2]{
-\begin{figure}[!hbt]
-\centering
-\includegraphics[scale=2]{#1}
-\caption{#2}
-\label{Fig:#1}
-\end{figure}
-} \index{\LaTeX!\textbackslash newcommand}
-\newtheorem{thm}{定理}[chapter]  
-\newtheorem{lem}{引理}[chapter]
-\newtheorem{ex} {例題}[chapter]
-\newtheorem{pr} {作業}[chapter]
-\newtheorem{rem}{註釋}
-\newtheorem{pf} {證明}
-%\includeonly{chapter1}           % 單獨編譯此檔
+
+%\includeonly{}          % 單獨編譯此檔
 \makeindex                       % 告訴\LaTeX要做索引
 \begin{document}                 % 宣告結束，本文開始
 
@@ -57,11 +44,11 @@
 \include{chapter1}               % 第一章    (自行寫入)
 \include{chapter2}               % 第二章    (自行寫入)
                                  % \backmatter
-\include{appendix}               % 若需要 用appendA/B環境
+\include{appendix}               % 若需要用appendA/B環境
 \include{bibli}                  % 文獻 (自行寫入 擇一)      
-\bibliographystyle{unsrt}        
-\bibliography{myfoo}             % 資料庫 (擇一)
+
+            
 %---------------------
 \clearpage
-\layout                          % 整頁尺寸
+\layout                          % 整頁尺寸(可註解%不用)
 \end{document} 

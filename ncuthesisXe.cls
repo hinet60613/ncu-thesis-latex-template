@@ -15,8 +15,8 @@
 % and MOST importantly DO NOT use the same file name 
 % as the file name is for this file EXCLUSIVELY.
 %--------------------------------------------------------------
-\def\fileversion{1.02}
-\def\filedate{2012/11/30}
+\def\fileversion{1.04}
+\def\filedate{2013/06/30}%{2011/01/10}
 \typeout{}
 \typeout{Document Class: ncuthesisXe.cls 
         \filedate \space v\fileversion \space (Jesse LO)}
@@ -25,7 +25,7 @@
 
 %-------------------------- identification -------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ncuthesisXe}[2012/11/30 v1.02 NCU thesis class]
+\ProvidesClass{ncuthesisXe}[2012/11/30 v1.04 NCU thesis class]
 %-------------------------- initial code -----------------------
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 %-------------------------- executation ---------------------
@@ -33,10 +33,11 @@
 \LoadClass[a4paper,openright]{report}  % 單或雙面印刷 
 \if@twoside\else\raggedbottom\fi 
 
-\RequirePackage{xltxtra}            % 設定字型 4 in 1
+%\RequirePackage{xltxtra}            % may cause problem
 \RequirePackage{fontspec}
+%\RequirePackage[utf8]{inputenc}
 \RequirePackage{xunicode}           % unicode character macros
-\RequirePackage[BoldFont,CJKnumber]{xeCJK}        % 選用巨集
+\RequirePackage[CJKnumber]{xeCJK}        % 選用巨集
 \setCJKmainfont{標楷體}             % 中文為主：新細明體或其他
 \XeTeXlinebreaklocale "zh"          % 一定要加，才能自動換行
 \XeTeXlinebreakskip = 0pt plus 1pt  % 一定要加，才能自動換行
@@ -53,13 +54,13 @@ pdftitle={An example in TeX/LaTeX/XeLaTeX}]{hyperref} % 超聯結
 \RequirePackage{titletoc}
 
 \titleformat{\chapter}[block]
-{\centering\Huge\bfseries\color{blue}}
+{\centering\Huge\bfseries}
 {{\CJKnumber{\thechapter}、}}{1pc}{}
 %----------------------------
-\titleformat{\section}[block]{\flushleft\LARGE\color{green}}
+\titleformat{\section}[block]{\flushleft\LARGE}
 {\LARGE \enspace \sf \thesection \enspace}{1pc}{}
 %----------------------------
-\titleformat{\subsection}[block]{\flushleft\LARGE\color{red}}
+\titleformat{\subsection}[block]{\flushleft\LARGE}
 {\filright \enspace \LARGE \sf \thesubsection \enspace}{1pc}{}
 %============================       % for Chinese toc 
 \titlecontents{chapter}[0em]{}  
@@ -142,7 +143,7 @@ The paper width is  &\printlength{\paperwidth}
 \thispagestyle{empty}
 \null\vfill
 \begin{center}
-{\Huge\textbf{國\quad 立\quad 中\quad 央\quad 大\quad 學}\par}
+{\Huge\textbf{國\quad立\quad中\quad央\quad大\quad學}\par}
 \vspace*{30mm}
 {\Huge {\@dept} \par}
 \vspace*{2ex}
@@ -171,7 +172,8 @@ The paper width is  &\printlength{\paperwidth}
 % 先定義一單欄式的新環境(onecol) 需輸入一標題變數。
 
 \newenvironment{onecol}[1]
-{\phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage
+\phantomsection\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}
@@ -183,7 +185,8 @@ The paper width is  &\printlength{\paperwidth}
 \end{alwayssingle}}
 %----------- No thesis title on the top
 \newenvironment{onecolnotitle}[1]
-{\phantomsection\addcontentsline{toc}{chapter}{#1}
+{\cleardoublepage
+\phantomsection\addcontentsline{toc}{chapter}{#1}
 \begin{alwayssingle}
 \thispagestyle{plain}
 \begin{center}
@@ -242,3 +245,4 @@ The paper width is  &\printlength{\paperwidth}
 \@afterindenttrue
 \makeatother
 %-------------end of ncuthesis 
+\endinput

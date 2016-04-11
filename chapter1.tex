@@ -1,5 +1,9 @@
 \chapter{使用說明}
 多年來研究室碩士班學生雖以\LaTeX 撰寫論文，文章結構多引用前屆學長論文結構，然共同的體裁檔一直欠缺，今從網路學習各校之體裁檔，加以正值著作期間，不斷瀏覽，收尋相關網頁，獲致許多相關知識，故解決多年困擾有望。此論文範本將{\tt ncuthesis}的使用說明以三章來陳述並做成中央大學標準論文格式，原始碼與PDF輸出皆放在''{\tt NCU}論文''的檔案夾內。請看{\tt README}說明，或第三章說明。
+\begin{itemize}
+\item {\color{red}紅色} ---  非常重要，因人而需修改。
+\item {\color{blue}藍色} --- 必備知識，因需要而採用。
+\end{itemize}
 \index{ncuthesis 體裁!ncuthesisXe}\index{ncuthesis 體裁!ncuthesisCJK}
 \section{文獻回顧}
 此碩博士論文之體裁檔受啟發於兩位英美教授於網路上的公開文章與檔案
@@ -25,7 +29,7 @@
 論文封面 & 設定長寬 & 章節目錄 & 書脊文字 & 超連結 & 插頁技巧\\ 
 編製頁碼 & 摘要附錄 & 字體行距 & 中文書籤 & 中文化 & 多種編譯  \\
 多功選項 & \\
-\end{tabular}\\
+\end{tabular}
 
 準此，以上設定都已完成，學生不須操心。
 \section{中文化}
@@ -33,7 +37,7 @@
 \begin{itemize}
 \item {\tt CJK (Chinese Janpanese Korean)}中文化: \index{中文化!CJK}
 \begin{enumerate}
-\item 中文化相關巨集 {\tt CJKutf8，CJKvert，CJKnumb，titletoc，titlesec，pdflscape} 已自動載入。不須再另行載入。
+\item 中文化相關巨集 {\tt CJKutf8，CJKvert，CJKnumb，titletoc，titlesec，pdflscape} 已自動載入。不須再另行載入。\hfil\break
 {\tt mypreamble.tex} 則提供其他讀者自訂巨集例如 {\tt amssymb，amsmath，tikzpicture，circuitikz}等，端視讀者需求。
 \index{中文化!CJKutf8}\index{中文化!CJKvert}\index{中文化!titletoc}\index{中文化!titlesec}\index{中文化!CJKnumb}
 \item 用 {\tt pdfLaTeX+MakeIndex+BibTeX}編譯。
@@ -49,9 +53,9 @@
 兩種主檔案兩者不同之處其實只有10行左右。但為方便不同的研究生使用，故刻意做出兩份。雖然台灣有其他 $\chi$\TeX({\tt aka. chi\TeX})，cw\TeX，PU\TeX的相同軟體，但編譯時可能有兩種中文相衝的可能性，未深入研究。
 \end{itemize}
 \section{檔案結構}
-稍微了解\TeX{}/\LaTeX{}的學生讀者應可了解下列結構，因為是沿用\LaTeX{}{\tt report}結構。只是體裁檔{\tt (class file)}需寫入{\tt ncuthesisCJK} 或 {\tt ncuthesisXe} 以便做出符合中央大學範例的格式。%
+稍微了解\TeX{}/\LaTeX\ 的學生讀者應可了解下列結構，因為是沿用\LaTeX\ {\tt report}結構。只是體裁檔{\tt (class file)}需寫入{\tt ncuthesisCJK} 或 {\tt ncuthesisXe} 以便做出符合中央大學範例的格式。%
 \index{\LaTeX!classes!report}\index{\LaTeX!classes!article}
-\index{\LaTeX!\textbackslash chapter}\index{\LaTeX!\textbackslash section}\index{\LaTeX!\textbackslash subsection}\index{\LaTeX!\textbackslash subsubsection}\index{\LaTeX!\textbackslash author}\index{\LaTeX 環境!table} 
+\index{\LaTeX!\textbackslash chapter}\index{\LaTeX!\textbackslash section}\index{\LaTeX!\textbackslash subsection}\index{\LaTeX!\textbackslash subsubsection}\index{\LaTeX!\textbackslash author}\index{\LaTeX\ 環境!table} 
 \begin{table}[hbt!]
 \caption{論文結構}
 \label{bookstruc} \index{\LaTeX!\textbackslash label}
@@ -63,15 +67,15 @@ firstline=1,lastline=1}
 \VerbatimInput{masterthesisXe.tex}
 宣告區\quad {\tt Preamble}
 \fvset{frame=topline,numbers=left,numbersep=3pt,
-firstline=35,lastline=35}
+firstline=22,lastline=22}
 \VerbatimInput{masterthesisXe.tex}
 本文區\quad {\tt Text body}
 \fvset{frame=bottomline,numbers=left,numbersep=3pt,
-firstline=67,lastline=67}
+firstline=54,lastline=54}
 \VerbatimInput{masterthesisXe.tex}
 
 \index{\LaTeX!\textbackslash VerbatimInput}
-此資料夾提供兩種中文化方法，使用時先選擇主檔，建議Xe\LaTeX\ 編譯方式，然後將此主檔 {\tt masterthesisCJK.tex} 或 {\tt masterthesisXe.tex} 另存新檔，給一個自己喜歡的檔名譬如{\tt foo.tex}。新檔內容幾乎一模一樣不需改變甚麼(所以簡單吧)。但是至少系所、學生、教授、論文題目不同，須修正，現將分別陳述於後： \index{\LaTeX!\textbackslash input}
+此資料夾提供兩種中文化方法，使用時先選擇主檔(建議Xe\LaTeX\ 編譯方式)，然後{\tt masterthesisCJK.tex} 或 {\tt masterthesisXe.tex} 另存新檔，給一個自己喜歡的檔名譬如{\tt foo.tex}。新檔內容幾乎一模一樣不需改變甚麼(所以簡單吧)。但是至少系所、學生、教授、論文題目不同，須修正，現將分別陳述於後： \index{\LaTeX!\textbackslash input}
 \index{Packages!verbatim}\index{foo}
 
 \subsection{宣告區}
@@ -89,39 +93,37 @@ rulecolor=\color{red},firstline=6,lastline=16}
 \index{ncuthesis 指令!\textbackslash title} \index{ncuthesis 指令!\textbackslash subtitle}\index{ncuthesis 指令!\textbackslash degree} \index{ncuthesis 指令!\textbackslash degreedate}\index{ncuthesis 指令!\textbackslash author}
 \index{ncuthesis 指令!\textbackslash copyyear}\index{ncuthesis 指令!\textbackslash dept}%
 \fvset{frame=single,framerule=0.4pt,numbers=left,numbersep=3pt,
-rulecolor=\color{black},firstline=17,lastline=34}
+rulecolor=\color{black},firstline=17,lastline=21}
 \VerbatimInput{masterthesisXe.tex} 
-17-34行是中文化定理、引理、例題等具重複性常用定義。
-如果自訂巨集少則自行加入，若多則建議寫入{\tt mypreamble.tex}，再以\textbackslash input引入。如範例所示。
+17行是自行定義的中文化定理、引理、例題等具重複性常用定義。
+如果自訂巨集少則自行加入，若多則建議寫入{\tt mypreamble.tex}，再以\textbackslash input引入。如範例所示。 第21行則是要求索引製作。
 \index{ncuthesis 檔案!mypreamble}\index{ncuthesis 檔案!ncuthesisCJK}\index{ncuthesis 檔案!ncuthesisXe}\index{ncuthesis 檔案!abstractcn}\index{ncuthesis 檔案!abstracten}
 \index{ncuthesis 檔案!chapter1}\index{ncuthesis 檔案!chapter2}\index{ncuthesis 檔案!appendA}\index{ncuthesis 檔案!appendB}\index{ncuthesis 檔案!bibli}\index{ncuthesis 檔案!symbol}\index{ncuthesis 檔案!acknowledge}
 \index{Packages!calculator}\index{Packages!showframe}
 \index{Packages!hyperref}\index{Packages!fancyvrb}
 
 \subsection{本文區}
-\fvset{frame=single,numbers=left,numbersep=3pt,firstline=36,lastline=47}
+\fvset{frame=single,numbers=left,numbersep=3pt,firstline=23,lastline=35}
 \VerbatimInput{masterthesisXe.tex}
+這些行是製作封面，書名頁，非\LaTeX{}格式但已成為PDF格式紙張插頁，例如各校口試委員簽名頁等畢業有關之頁。
 
 \fvset{frame=single,framerule=1mm,numbers=left,numbersep=3pt,
-rulecolor=\color{blue},firstline=48,lastline=52}
+rulecolor=\color{blue},firstline=36,lastline=39}
 \VerbatimInput{masterthesisXe.tex}
-48-52行依序為中英文摘要、謝誌、目錄、圖目、表目、符號說明等。 因論文需要而設計的特定環境(不需要則不必寫，用\%使其\textbackslash include指令無效)。\index{\LaTeX 環境!tabbing}
+36-39行依序為中英文摘要、謝誌、目錄、圖目、表目、符號說明等。 因論文需要而設計的特定環境(不需要則不必寫，用\%使其\textbackslash include指令無效)。\index{\LaTeX\ 環境!tabbing}
 
-\fvset{frame=single,framerule=0.4pt,numbers=left,numbersep=3pt,
-rulecolor=\color{black},firstline=53,lastline=56}
-\VerbatimInput{masterthesisXe.tex}
 \index{ncuthesis 環境!abstractcn} \index{ncuthesis 環境!abstracten}\index{ncuthesis 環境!acknowledgements} 
 \index{ncuthesis 環境!symbols}\index{ncuthesis 環境!appendA}\index{ncuthesis 環境!appendB}
 
 \fvset{frame=single, framerule=1mm,numbers=left,numbersep=3pt,
-rulecolor=\color{blue},firstline=57,lastline=63}
+rulecolor=\color{blue},firstline=40,lastline=50}
 \VerbatimInput{masterthesisXe.tex}
-第57-63行則為其他各章節，是屬\LaTeX的用法，如同打字一般，將文字內容打入各檔案。第二章再簡要說明\LaTeX\ 用法。
-
+第44-47行則為其他各章節，是屬\LaTeX的用法，如同打字一般，將文字內容打入各檔案。第二章有簡要說明\LaTeX\ 用法。
+48-50行是參考文獻設定。本書用簡單的方式，另有檔案方式({\tt.bib})，請看第二章。
 \fvset{frame=single,framerule=0.4pt,numbers=left,numbersep=3pt,
-rulecolor=\color{black},firstline=64,lastline=66}
+rulecolor=\color{black},firstline=51,lastline=53}
 \VerbatimInput{masterthesisXe.tex}
-
+51-53行是方便了解紙張設定，可除去(\%)不用。
 \subsection{插頁}
 本論文封面已設計成中大碩博士論文封面，然因中央大學有其它表格化的{\tt doc}檔，此手冊並未以\LaTeX\ 設計其相關表格，以維持與其他學校論文最大的相容性，方便推廣。然如何加入特定表格？建議用插頁方式如下。先完成{\tt DOC}相關表格，排好順序，再存成{\tt myfile.pdf}檔。(所以若有非\LaTeX{}的{\tt pdf}檔皆可以類推，加入論文內。)
 \begin{verbatim}
@@ -130,9 +132,9 @@ rulecolor=\color{black},firstline=64,lastline=66}
       addtotoc={1,subsection,2,{書簽名},標名}]{myfile.pdf}
 註解：addtotoc={page number,section,level,heading,label}
 \end{verbatim}
-第1行寫於宣告區。插頁若需出現在目錄則加{\tt addtotoc}指令。上述之第2行於插頁需要之處寫入。如本例第45行所示，再次顯示於下：
+第1行寫於宣告區。插頁若需出現在目錄則加{\tt addtotoc}指令。上述之第2行於插頁需要之處寫入。如本例第32行所示，再次顯示於下：
 \fvset{frame=single,framerule=1mm,numbers=left,numbersep=3pt,
-rulecolor=\color{blue},firstline=45,lastline=45}
+rulecolor=\color{blue},firstline=32,lastline=32}
 \VerbatimInput{masterthesisXe.tex}
 
 另外有些博士生將履歷 ({\tt via package moderncv}) 加入論文最後幾頁，亦可用此技巧達成。只要是非以\LaTeX{}產生的圖表轉成{\tt png,jpg,jpeg,pdf}檔後，皆可依此方式加入論文並與論文成為一體自動連號。
@@ -145,21 +147,25 @@ rulecolor=\color{blue},firstline=45,lastline=45}
 \item {\tt masterthesisXe.tex } 及必需之體裁檔 {\tt ncuthesisXe.cls}
 \end{itemize}
 提供論文編寫方式，其輸出即是標準格式。快速方便及時。
-\index{\LaTeX 環境!itemize}
+\index{\LaTeX\ 環境!itemize}
 \begin{itemize} \index{\TeX!\LaTeX}
 \item 本論文假設學生有 \TeX/\LaTeX 基礎知識，若需加強相關知識，網路上有免費資訊可供學習。第二章亦提供一些參考網址。 \index{使用手冊}
-\item 第38行：中文字大小及行距是由這行設定
+\item 第20行：可只編譯某些檔(以逗點分開)，除錯時好用，可降低編譯時間。
 \fvset{frame=single,numbers=left,numbersep=3pt,
-rulecolor=\color{blue},firstline=38,lastline=38}
+rulecolor=\color{blue},firstline=20,lastline=20}
+\VerbatimInput{masterthesisXe.tex}
+\item 第25行：中文字大小及行距是由這行設定
+\fvset{frame=single,numbers=left,numbersep=3pt,
+rulecolor=\color{blue},firstline=25,lastline=25}
 \VerbatimInput{masterthesisXe.tex}
 \item 使用亞洲字型{\tt CJK，xeCJK}中文化且設定為楷書({\tt bkai})，不是 cw\TeX 或 PU\TeX 或 $\chi$\TeX。 \index{\TeX!cw\TeX}\index{\TeX!PU\TeX}
 \item 使用時需有{\tt unicode/utf8}編輯器如{\tt MiKTeX的TeXworks}\footnote{LyX愛好者可先將檔案({\tt chapter1,2,3...})做好再存成{\tt .tex}檔然後用{\tt masterthesis.tex}編譯}。 \index{MiKTeX}\index{TeXworks} \index{\TeX!LyX}\index{\TeX!Xe\LaTeX}
-\item {\color{red}行動安裝}在第二章說明，{\tt Window}版免費排版系統\TeX{}/\LaTeX{}/Xe\LaTeX 垂手可得，亦建議採用。 
+\item {\color{red}行動安裝}在第二章說明，{\tt Window/Android}版免費排版系統\linebreak \TeX{}/\LaTeX{}/Xe\LaTeX{}垂手可得，亦建議採用。 
 \item 使用pdf\LaTeX\ 或 Xe\LaTeX\ 連續編譯兩次(TeXworks 會自動執行兩次)。故若有圖檔請都存成{\tt png,jpg,jpeg,pdf}。
 \item 撰寫方式如\TeX/\LaTeX{}一般寫作技巧。此範例主要是用環境\linebreak({\tt environment}) 技巧。除"附錄"環境外，所有其他環境皆會自動帶入論文題目。
-\item 論文很少用索引，故{\tt makeidx，\textbackslash makeindex，\textbackslash printindex}三指令(第2、34行，最後一行在{\tt bibli}內) 可省略，但此論文範本保留。
-\item {\tt bookbone.tex}提供製作論文書脊於最後一頁%
-\marginpar{\raggedright\includegraphics[width=1.5cm]{bone.pdf}}，
+\item {\color{red}論文很少用索引，故{\tt makeidx，\textbackslash makeindex，\textbackslash printindex}三指令(第2、34行，最後一行在{\tt bibli}內) 可省略，但此論文範本保留。}
+\item {\tt bookbone.tex}提供製作論文書脊於最後一頁
+%\marginpar{\raggedright\includegraphics[width=1.5cm]{bone.pdf}}，
 現印於右側以便觀察 (Xe\LaTeX{}則無法呈現)。長書脊時請仿照校名({\tt tabular}技巧)製作兩欄式，只要單獨編譯{\tt bookbone.tex} 即可得。 \index{ncuthesis 指令!\textbackslash backbone}
 \item 本論文用到的參數整理在符號說明頁\framebox{\pageref{symb}}。了解後就可開始用此套件了。
 \item 編譯時，可選單面印刷(預設值)或雙面印刷：\\   \index{\LaTeX!\textbackslash noframe}%
@@ -172,8 +178,8 @@ rulecolor=\color{blue},firstline=38,lastline=38}
 {\color{blue}
 \begin{center}
 \begin{tabular}{|c|c|c|} \hline 
- 選項             &  空白    &  {\tt  draft}      \\ \hline 
- 空白             &    框     &    框 +頁眉      \\ \hline
+ 選項          &  空白    &  {\tt  draft}      \\ \hline 
+ 空白          &    框    &    框 +頁眉      \\ \hline
 {\tt noframe}  &    無框  &    無框+頁眉   \\ \hline
 \end{tabular}
 \end{center}
@@ -183,14 +189,14 @@ rulecolor=\color{blue},firstline=38,lastline=38}
 \begin{enumerate}
 \item $<$空白,空白$>$此預設值會產生文字外框，偵測是否越界。
 \item $<${\tt draft},空白$>$選項，編譯較快，圖形或插頁皆以方格表示並不載入，且右邊會出現黑體垂線表示超出頁面範圍，方便修改除錯。且頁眉右側會出現智財權屬於作者，以防止文件不慎遺出。
-\item$<$空白,{\tt noframe}$>$除去外框之{\color{red}單頁印刷完稿}，要雙頁印刷之完稿，別忘了要用{\tt twoside}。的確，$<${\tt twoside,noframe}$>$才是最後完稿。
+\item$<$空白,{\tt noframe}$>$除去外框之{\color{red}單頁印刷完稿}，要雙頁印刷之完稿，別忘了要用{\tt twoside}{\color{red}。的確，$<${\tt twoside,noframe}$>$才是最後完稿。}
 \item$<${\tt draft,noframe}$>$無外框但有頁眉。
 \end{enumerate}
 \item \textbackslash printpapersize 會印出目前頁面參數。
 {\tt ncuthesisXe.cls}檔案內第106-110行，可改變紙張大小。\\
 \printpagesize \\               % to print page size
 上示參數為相對於紙張左上角(視為原點)，向右向下(1in,-1in)處之參考點。\index{ncuthesis 指令!\textbackslash printpapersize}
-\item \LaTeX\ 提供五種體裁檔{\tt article, book, report, letter, slides}，\linebreak{\tt ncuthesisXe(CJK)}則是結合{\tt report}再定義新環境而成。故要產生本校的固定格式必需用{\tt ncuthesisXe(CJK)}。
+\item \LaTeX\ 有五種體裁檔{\tt article, book, report, letter, slides}\hfil\break{\tt ncuthesisXe(CJK)}則是結合{\tt report}再定義新環境而成。故要產生本校的固定格式必需用{\tt ncuthesisXe(CJK)}。
 \index{\LaTeX!classes!article}\index{\LaTeX!classes!book}\index{\LaTeX!classes!report}
 \index{\LaTeX!classes!letter}\index{\LaTeX!classes!slides}
 \end{itemize}
@@ -198,15 +204,14 @@ rulecolor=\color{blue},firstline=38,lastline=38}
 目前，此體裁檔在六台不同的電腦(皆{\tt Windows})及一台{\tt Ubuntu上安裝LyX2.0.2/TeXLive2009}，測試成功，都是安裝英文\LaTeX{}，沒有中文化的cw\TeX，PU\TeX，$\chi$\TeX。一般來說，不會有問題。但若編譯失敗，請試試看下列建議。
 \begin{enumerate}
 \item 編譯時若錯誤訊息顯示和{\tt .aux} 有關，請清除所有{\tt *.aux}檔案。因為兩種編譯方法使用同一檔案夾，有可能相衝。 
-% \item {\color{red}將{\tt ncuthesis}改回{\tt article}或{\tt report}，在48-52行及{\tt abstractcn,\linebreak abstracen, acknowledge, symbol}}的最前面加入\%使無效，保留有問題的檔案單獨編譯，如果問題仍然存在，則應與 {\tt ncuthesis} 無關。是\LaTeX語法有錯，或中文相衝。
 \item 第一步測試結果問題仍然在，可能是中文相衝。測試的電腦其\LaTeX{ }系統是否有安裝 $\chi$\TeX，cw\TeX或PU\TeX嗎？本論文製作時是在英文\LaTeX{}下加 {\tt CJK/xeCJK}環境。建議試試看前述之{\tt USB}行動安裝，再執行編譯應可解決(換言之，單獨一個\LaTeX\ 系統)。
 \item {\color{red}\tt 在USB執行時，若找不到\LaTeX，請確認TeXworks內指向正確 --- 請檢查edit/preferences/typsetting/+(新增)/USB所在槽:MiKTeX/miktex/bin}。
-\item 編譯時 {\tt Acrobat reader} 請關掉。
+\item {\color{red}編譯時 {\tt Acrobat reader} 請關掉，因{\tt TeXworks}有自己的閱讀器。}
 \item 指令是否拼錯？錯一個字母都會產生除錯難度。
 \item 編譯時，直接按{\tt enter}鍵，先忽略錯誤訊息，亦有助除錯。
 \item 是否特定巨集({\tt macro})未放進來？\textbackslash usepackage\{\ldots\}未正確。
 \item 將編譯的範圍縮小，試圖找出第一次就卡住的那段問題在何處?是否與數學符號有關，是否與表格或插圖有關？
-\item 是否定義的新定理(\textbackslash newenvironment)或變數名{\verb|\def|}與{\tt ncuthesis}相同？
+\item 是否定義定理(\textbackslash newenvironment)或變數名{\verb|\def|}與{\tt ncuthesis}相同？
 \item 任何問題，都可上網查詢。以{\tt Google}收尋"關鍵字"再加{\tt LaTeX}即可有很多知識等你學。這是\LaTeX\ 迷人之處。
 \end{enumerate}
 
